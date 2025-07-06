@@ -1,29 +1,29 @@
 package observable;
 
-import observer.Observer;
+import observer.NotificationAlertObserver;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OutOfStockObservableImpl implements Observable{
-    int stock;
+public class OutOfStockObservableImpl implements OutOfStockObservable {
+    int stock = 0;
 
-    List<Observer> observers = new ArrayList<>();
+    List<NotificationAlertObserver> observers = new ArrayList<>();
 
 
     @Override
-    public void add(Observer obj) {
+    public void add(NotificationAlertObserver obj) {
         observers.add(obj);
     }
 
     @Override
-    public void remove(Observer obj) {
+    public void remove(NotificationAlertObserver obj) {
         observers.remove(obj);
     }
 
     @Override
     public void notifyObserver() {
-        for(Observer o : observers)  o.update();
+        for(NotificationAlertObserver o : observers)  o.update();
     }
 
     @Override
@@ -33,7 +33,10 @@ public class OutOfStockObservableImpl implements Observable{
 
     @Override
     public void setData(int stock) {
-        this.stock = stock;
-        notifyObserver();
+        if(stock == 0)
+        {
+            notifyObserver();
+        }
+        this.stock = this.stock + stock;
     }
 }

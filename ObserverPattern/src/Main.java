@@ -19,7 +19,7 @@ public class Main {
 
         observable.add(observer1);
         observable.add(observer2);
-        observable.add(observer2);
+        observable.add(observer3);
 
         observable.setData(10);
         observable.setData(0);

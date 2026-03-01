@@ -208,11 +208,34 @@ Each add-on wraps the previous coffee object.
 # 🧪 Example Usage
 
 ```java
-Coffee coffee = new BlackCoffee();
-coffee = new Milk(coffee);
-coffee = new Sugar(coffee);
+System.out.println("Hello world! \nThis is coffiee machine to implement decorator pattern.");
 
-System.out.println(coffee.getDescription());
-System.out.println(coffee.getCost());
-Black Coffee, Milk, Sugar
-40
+//Black coffee with milk and sugar
+Coffee order1 = new BlackCoffee();
+order1 = new MilkDecorator(order1);
+order1 = new SugarDecorator(order1);
+System.out.println("Order1 :"+order1.getDescription());
+System.out.println("Price :"+order1.getPrice());
+
+//Indian style filter coffee with sugar
+Coffee order2 = new FilterCoffee();
+order2 = new SugarDecorator(order2);
+System.out.println("Order2 :"+order2.getDescription());
+System.out.println("Price :"+order2.getPrice());
+
+//Plain Espresso with no addons
+Coffee order3 = new Espresso();
+System.out.println("Order2 :"+order3.getDescription());
+System.out.println("Price :"+order3.getPrice());
+
+
+output:
+    This is coffiee machine to implement decorator pattern.
+    Order1 :This is a black coffee(25rs) + milk(10rs) + sugar(5rs)
+    Price :40.0
+    Order2 :This is a indian style filter coffee (30rs) + sugar(5rs)
+    Price :35.0
+    Order2 :This is a espresso (50rs)
+    Price :50.0
+
+```

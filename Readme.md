@@ -12,13 +12,14 @@ This document tracks important Design Patterns from a Low-Level Design (LLD) int
 ✔ Factory Pattern  
 ✔ Observer Pattern  
 ✔ Singleton Pattern  
-✔ Strategy Pattern
+✔ Strategy Pattern  
+✔ Adaptar Pattern
 
 ---
 
 # 🚀 Important Patterns To Study Next (High Priority)
-✔ State Pattern (with Vending Machine example)
-✔ Adapter Pattern  
+
+✔ State Pattern (with Vending Machine example)  
 ✔ Command Pattern  
 ✔ Facade Pattern  
 ✔ Abstract Factory Pattern  
@@ -61,17 +62,16 @@ These patterns are most commonly used in:
 
 # 🧠 Pattern Usage Mapping
 
-| System | Patterns Used |
-|--------|---------------|
-| Logger System | Singleton + Chain |
-| Parking Lot | Strategy |
-| Payment System | Strategy + Factory + Adapter |
-| Order Management | State |
-| BookMyShow | Observer + Facade |
-| Notification System | Observer |
-| Vending Machine | State |
+| System              | Patterns Used                |
+| ------------------- | ---------------------------- |
+| Logger System       | Singleton + Chain            |
+| Parking Lot         | Strategy                     |
+| Payment System      | Strategy + Factory + Adapter |
+| Order Management    | State                        |
+| BookMyShow          | Observer + Facade            |
+| Notification System | Observer                     |
+| Vending Machine     | State                        |
 
 ---
-
 
 Made with ❤️ by [@vaibhav25-mnnit](https://github.com/vaibhav25-mnnit)

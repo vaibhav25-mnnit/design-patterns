@@ -13,7 +13,7 @@ This document tracks important Design Patterns from a Low-Level Design (LLD) int
 ✔ Observer Pattern  
 ✔ Singleton Pattern  
 ✔ Strategy Pattern  
-✔ Adaptar Pattern
+✔ Adaptar Pattern  
 ✔ Facade Pattern
 
 ---

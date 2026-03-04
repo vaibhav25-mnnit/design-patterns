@@ -14,6 +14,7 @@ This document tracks important Design Patterns from a Low-Level Design (LLD) int
 ✔ Singleton Pattern  
 ✔ Strategy Pattern  
 ✔ Adaptar Pattern
+✔ Facade Pattern
 
 ---
 
@@ -21,7 +22,6 @@ This document tracks important Design Patterns from a Low-Level Design (LLD) int
 
 ✔ State Pattern (with Vending Machine example)  
 ✔ Command Pattern  
-✔ Facade Pattern  
 ✔ Abstract Factory Pattern  
 ✔ Template Method Pattern
 

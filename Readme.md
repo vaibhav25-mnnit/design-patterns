@@ -6,15 +6,15 @@ This document tracks important Design Patterns from a Low-Level Design (LLD) int
 
 # ✅ Patterns I Have Studied
 
-✔ Builder Pattern  
-✔ Chain of Responsibility Pattern  
-✔ Decorator Pattern  
-✔ Factory Pattern  
-✔ Observer Pattern  
-✔ Singleton Pattern  
-✔ Strategy Pattern  
-✔ Adaptar Pattern  
-✔ Facade Pattern
+✔ [Adaptar Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/AdaptarPattern/Readme.md)  
+✔ [Builder Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/BuilderPattern/Readme.md)  
+✔ [Chain of Responsibility Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/Chain_of_responsibility_logger_design/Readme.md)  
+✔ [Decorator Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/DecoratorPattern/Readme.md)  
+✔ [Facade Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/FacadePattern/Readme.md)  
+✔ [Factory Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/FactoryPattern/Readme.md)  
+✔ [Observer Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/ObserverPattern/Readme.md)  
+✔ [Singleton Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/Singleton/Readme.md)  
+✔ [Strategy Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/StrategyPattern/Readme.md)
 
 ---
 

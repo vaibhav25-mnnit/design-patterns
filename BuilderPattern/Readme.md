@@ -1,4 +1,5 @@
 # Builder Design Pattern in Java
+
 > A beginner-friendly guide to understanding the Builder Pattern with a real-world Student Registration example.
 
 ---
@@ -50,19 +51,20 @@ BuilderPattern/
 
 ## Key Components
 
-| Component | Role | In This Example |
-|---|---|---|
-| **Product** | The complex object being built | `Student` |
-| **Abstract Builder** | Defines all build steps | `StudentBuilder` |
+| Component            | Role                                    | In This Example                         |
+| -------------------- | --------------------------------------- | --------------------------------------- |
+| **Product**          | The complex object being built          | `Student`                               |
+| **Abstract Builder** | Defines all build steps                 | `StudentBuilder`                        |
 | **Concrete Builder** | Implements steps for a specific variant | `CSStudentBuilder`, `MBAStudentBuilder` |
-| **Director** | Controls the order of build steps | `StudentDirector` |
-| **Client** | Chooses builder, asks director to build | `Main.java` |
+| **Director**         | Controls the order of build steps       | `StudentDirector`                       |
+| **Client**           | Chooses builder, asks director to build | `Main.java`                             |
 
 ---
 
 ## The Code
 
 ### Product — The Final Object Being Built
+
 ```java
 import java.util.List;
 
@@ -93,6 +95,7 @@ public class Student {
 ```
 
 ### Abstract Builder — Defines All Build Steps
+
 ```java
 import java.util.List;
 
@@ -132,6 +135,7 @@ abstract class StudentBuilder {
 ```
 
 ### Concrete Builders — Department Specific Implementations
+
 ```java
 // CS Student — gets CN, OS, DBMS subjects
 import java.util.ArrayList;
@@ -166,6 +170,7 @@ public class MBAStudentBuilder extends StudentBuilder {
 ```
 
 ### Director — Controls the Order of Build Steps
+
 ```java
 public class StudentDirector {
     StudentBuilder studentBuilder;
@@ -188,6 +193,7 @@ public class StudentDirector {
 ```
 
 ### Client — Chooses Builder, Asks Director to Build
+
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -276,22 +282,22 @@ new Student(studentBuilder);  // clean, no parameter confusion
 
 ## Builder vs Other Creational Patterns
 
-| | Builder | Factory | Abstract Factory |
-|---|---|---|---|
-| **Focus** | Step by step construction | Which class to instantiate | Families of related objects |
-| **Complex object?** | ✅ Yes | ❌ Simple | ❌ Simple |
-| **Construction order?** | ✅ Controlled by Director | ❌ No | ❌ No |
-| **Variants** | Different builders | Different subclasses | Different factories |
+|                         | Builder                   | Factory                    | Abstract Factory            |
+| ----------------------- | ------------------------- | -------------------------- | --------------------------- |
+| **Focus**               | Step by step construction | Which class to instantiate | Families of related objects |
+| **Complex object?**     | ✅ Yes                    | ❌ Simple                  | ❌ Simple                   |
+| **Construction order?** | ✅ Controlled by Director | ❌ No                      | ❌ No                       |
+| **Variants**            | Different builders        | Different subclasses       | Different factories         |
 
 ---
 
 ## SOLID Principles Covered
 
-| Rule | SOLID Principle |
-|---|---|
-| Each builder handles one type of student | Single Responsibility Principle |
-| Add new department? Just add new builder, nothing else changes | Open/Closed Principle |
-| Director depends on abstract `StudentBuilder`, not concrete builders | Dependency Inversion Principle |
+| Rule                                                                 | SOLID Principle                 |
+| -------------------------------------------------------------------- | ------------------------------- |
+| Each builder handles one type of student                             | Single Responsibility Principle |
+| Add new department? Just add new builder, nothing else changes       | Open/Closed Principle           |
+| Director depends on abstract `StudentBuilder`, not concrete builders | Dependency Inversion Principle  |
 
 ---
 
@@ -315,4 +321,6 @@ The `Client` just picks a builder and asks the director to build.
 
 ---
 
-*Part of the Design Patterns in Java series.*
+Made with ❤️ by [@vaibhav25-mnnit](https://github.com/vaibhav25-mnnit)
+
+---

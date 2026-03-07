@@ -1,4 +1,5 @@
 # Adapter Design Pattern in Java
+
 > A beginner-friendly guide to understanding the Adapter Pattern with a real-world USB cable example.
 
 ---
@@ -8,6 +9,7 @@
 The Adapter Pattern is a **structural design pattern** that allows two incompatible interfaces to work together.
 
 Think of it like a **USB dongle** on your laptop:
+
 - Your laptop only has a **USB-C port** (the interface your code understands)
 - Your old devices have **Type-A, Micro-USB, HDMI** ports (legacy systems)
 - The **dongle/converter** in between is the Adapter
@@ -54,13 +56,13 @@ AdapterPattern/
 
 ## Key Components
 
-| Component | Role | In This Example |
-|---|---|---|
-| **Target Interface** | What the client understands | `UsbCPort` |
-| **Adaptee** | Legacy system, never touched | `TypeAcable`, `HdmiCable`, etc. |
-| **Adapter** | Bridges adaptee to target | `TypeAAdapter`, `HdmiAdapter`, etc. |
-| **Client** | Uses only the target interface | `Laptop` |
-| **Main** | Wires everything together | `AdapterPattern.java` |
+| Component            | Role                           | In This Example                     |
+| -------------------- | ------------------------------ | ----------------------------------- |
+| **Target Interface** | What the client understands    | `UsbCPort`                          |
+| **Adaptee**          | Legacy system, never touched   | `TypeAcable`, `HdmiCable`, etc.     |
+| **Adapter**          | Bridges adaptee to target      | `TypeAAdapter`, `HdmiAdapter`, etc. |
+| **Client**           | Uses only the target interface | `Laptop`                            |
+| **Main**             | Wires everything together      | `AdapterPattern.java`               |
 
 ---
 
@@ -190,13 +192,17 @@ No adapter found for cable type: vga
 ## Rules to Always Follow
 
 ### 1. Never Touch Legacy Code
+
 The adaptee classes already work fine on their own. Your job is to wrap them, not change them.
+
 ```java
 // TypeAcable, HdmiCable etc — leave exactly as they are
 ```
 
 ### 2. One Adapter per Legacy Class — Strictly
+
 Each adapter has one job: adapt one legacy class. Never mix two legacy systems in one adapter.
+
 ```java
 // ❌ WRONG — one adapter managing multiple legacy systems
 class MediaAdapter {
@@ -210,6 +216,7 @@ class Mp4Adapter { private final Mp4Player mp4; }
 ```
 
 ### 3. Adapter HAS-A its Own Legacy Class (Composition)
+
 ```java
 class TypeAAdapter implements UsbCPort {
     private final TypeAcable typeAcable;  // HAS-A — composition, not inheritance
@@ -217,12 +224,15 @@ class TypeAAdapter implements UsbCPort {
 ```
 
 ### 4. Adapter IS-A Target Interface
+
 ```java
 class TypeAAdapter implements UsbCPort { ... }  // IS-A — implements client interface
 ```
 
 ### 5. Always Prefer Constructor Injection
+
 If a class always needs something to work, make it impossible to create that class without it.
+
 ```java
 // ❌ BAD — creates dependency internally
 class TypeAAdapter {
@@ -239,6 +249,7 @@ class TypeAAdapter {
 ```
 
 ### 6. Program to Interface, Not Concrete Class
+
 ```java
 // ❌ BAD — coupled to specific adapter
 private TypeAAdapter cable;
@@ -248,6 +259,7 @@ private UsbCPort cable;
 ```
 
 ### 7. Create Adapters Once, Reuse via Map
+
 ```java
 // ❌ BAD — new adapter object on every call
 new TypeAAdapter(new TypeAcable()).connect("device");
@@ -260,14 +272,14 @@ adapterMap.put("typea", new TypeAAdapter(new TypeAcable()));
 
 ## SOLID Principles Covered
 
-| Rule | SOLID Principle |
-|---|---|
-| Never touch legacy code | Open/Closed Principle |
-| One adapter per legacy class | Single Responsibility Principle |
+| Rule                              | SOLID Principle                     |
+| --------------------------------- | ----------------------------------- |
+| Never touch legacy code           | Open/Closed Principle               |
+| One adapter per legacy class      | Single Responsibility Principle     |
 | Adapter HAS-A its own legacy only | Single Responsibility + Composition |
-| Program to interface | Dependency Inversion Principle |
-| Constructor injection | Dependency Injection |
-| Reuse via Map | DRY Principle |
+| Program to interface              | Dependency Inversion Principle      |
+| Constructor injection             | Dependency Injection                |
+| Reuse via Map                     | DRY Principle                       |
 
 ---
 
@@ -282,10 +294,10 @@ adapterMap.put("typea", new TypeAAdapter(new TypeAcable()));
 
 ## Two Types of Adapters
 
-| Type | Mechanism | Recommended? |
-|---|---|---|
+| Type               | Mechanism           | Recommended?     |
+| ------------------ | ------------------- | ---------------- |
 | **Object Adapter** | Composition (HAS-A) | ✅ Always prefer |
-| **Class Adapter** | Inheritance (IS-A) | ❌ Avoid in Java |
+| **Class Adapter**  | Inheritance (IS-A)  | ❌ Avoid in Java |
 
 Java does not support multiple class inheritance, so Object Adapter (composition) is always the preferred approach.
 
@@ -301,4 +313,6 @@ Whether `TypeAAdapter` or `HdmiAdapter` does it — that is the WHO.
 
 ---
 
-*Part of the Design Patterns in Java series.*
+Made with ❤️ by [@vaibhav25-mnnit](https://github.com/vaibhav25-mnnit)
+
+---

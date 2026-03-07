@@ -5,6 +5,7 @@
 This project simulates a simple coffee machine.
 
 You can:
+
 - Choose a base coffee
 - Add milk
 - Add sugar
@@ -19,11 +20,13 @@ The main purpose of this project is to understand the **Decorator Design Pattern
 Imagine a coffee shop menu:
 
 ## Base Coffees:
+
 - Black Coffee – ₹25
 - Indian Filter Coffee – ₹30
 - Espresso – ₹50
 
 ## Add-ons:
+
 - Milk – ₹10
 - Sugar – ₹5
 
@@ -64,11 +67,13 @@ Use the Decorator Pattern when:
 ## 1️⃣ You Need Many Combinations of Features
 
 If your system has:
+
 - A base object
 - Multiple optional add-ons
 - Different combinations of those add-ons
 
 Example in this project:
+
 - 3 base coffees
 - 2 add-ons
 - Total combinations = Many
@@ -84,6 +89,7 @@ Decorator allows flexible combinations without creating new classes every time.
 Sometimes you don't know in advance what features the user will choose.
 
 Example:
+
 - Customer selects coffee
 - Then chooses milk
 - Then decides to add sugar
@@ -91,6 +97,7 @@ Example:
 You cannot predefine every possible combination.
 
 Decorator allows:
+
 - Adding behavior dynamically
 - Layer by layer
 
@@ -103,6 +110,7 @@ Open/Closed Principle says:
 > Software entities should be open for extension but closed for modification.
 
 With decorator:
+
 - You can create new add-ons (like Chocolate)
 - Without changing existing coffee classes
 
@@ -119,6 +127,7 @@ Do NOT use it when:
 ❌ The object is simple and unlikely to grow
 
 Using decorator unnecessarily can:
+
 - Increase complexity
 - Make debugging harder
 - Create too many small classes
@@ -142,6 +151,7 @@ Using decorator unnecessarily can:
 ❌ Debugging nested decorators can be tricky
 
 ---
+
 # 🏗 How It Works (Simple Explanation)
 
 Think of it like wrapping a gift 🎁
@@ -162,6 +172,7 @@ We decorate it.
 ## 1️⃣ Coffee Interface
 
 All coffee types must implement:
+
 - `getDescription()`
 - `getCost()`
 
@@ -172,10 +183,12 @@ This ensures every coffee behaves in a consistent way.
 ## 2️⃣ Base Coffee Classes
 
 Each base coffee:
+
 - Has its own price
 - Returns its name
 
 Example:
+
 - Black Coffee → ₹25
 - Indian Filter Coffee → ₹30
 - Espresso → ₹50
@@ -185,6 +198,7 @@ Example:
 ## 3️⃣ CoffeeDecorator (The Wrapper)
 
 This class:
+
 - Holds a reference to a Coffee object
 - Implements the Coffee interface
 - Allows add-ons to wrap around coffee objects
@@ -194,10 +208,12 @@ This class:
 ## 4️⃣ Add-ons (Milk & Sugar)
 
 ### Milk:
+
 - Adds ₹10
 - Appends ", Milk" to the description
 
 ### Sugar:
+
 - Adds ₹5
 - Appends ", Sugar" to the description
 
@@ -239,3 +255,9 @@ output:
     Price :50.0
 
 ```
+
+---
+
+Made with ❤️ by [@vaibhav25-mnnit](https://github.com/vaibhav25-mnnit)
+
+---

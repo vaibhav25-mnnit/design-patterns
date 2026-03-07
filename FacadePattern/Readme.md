@@ -1,4 +1,5 @@
 # Facade Design Pattern in Java
+
 > A beginner-friendly guide to understanding the Facade Pattern with a real-world Hotel Booking example.
 
 ---
@@ -7,7 +8,7 @@
 
 The Facade Pattern is a **structural design pattern** that provides a **simple unified interface** to a complex system of classes, hiding all internal complexity from the client.
 
-The word **Facade** literally means the *front face* of a building — you see a clean entrance, not the wiring, plumbing, and structure behind it.
+The word **Facade** literally means the _front face_ of a building — you see a clean entrance, not the wiring, plumbing, and structure behind it.
 
 ---
 
@@ -54,17 +55,18 @@ FacadePattern/
 
 ## Key Components
 
-| Component | Role | In This Example |
-|---|---|---|
-| **Subsystems** | Complex classes doing actual work | `RoomService`, `PaymentService`, etc. |
-| **Facade** | Coordinates all subsystems, simple interface | `HotelBookingFacade` |
-| **Client** | Talks only to Facade, unaware of subsystems | `FacadePattern.java` |
+| Component      | Role                                         | In This Example                       |
+| -------------- | -------------------------------------------- | ------------------------------------- |
+| **Subsystems** | Complex classes doing actual work            | `RoomService`, `PaymentService`, etc. |
+| **Facade**     | Coordinates all subsystems, simple interface | `HotelBookingFacade`                  |
+| **Client**     | Talks only to Facade, unaware of subsystems  | `FacadePattern.java`                  |
 
 ---
 
 ## The Code
 
 ### Subsystems — Complex Classes Behind the Scenes
+
 ```java
 // handles room availability and reservation
 class RoomService {
@@ -115,6 +117,7 @@ class LoyaltyService {
 ```
 
 ### Facade — One Simple Interface to All Subsystems
+
 ```java
 class HotelBookingFacade {
 
@@ -169,6 +172,7 @@ class HotelBookingFacade {
 ```
 
 ### Client — Only Talks to Facade
+
 ```java
 public class FacadePattern {
     public static void main(String[] args) {
@@ -232,6 +236,7 @@ facade.book("John",      ───► coordinates          ─────┼─
 ## Rules to Always Follow
 
 ### 1. Facade HAS-A instance of every subsystem it coordinates
+
 ```java
 class HotelBookingFacade {
     private final RoomService roomService;         // HAS-A
@@ -241,6 +246,7 @@ class HotelBookingFacade {
 ```
 
 ### 2. Always inject subsystems via Constructor — never create internally
+
 ```java
 // ❌ BAD — tightly coupled, hard to test
 class HotelBookingFacade {
@@ -257,6 +263,7 @@ class HotelBookingFacade {
 ```
 
 ### 3. Subsystems should NOT know about the Facade
+
 ```java
 // RoomService, PaymentService etc work completely independently
 // They have no reference to HotelBookingFacade
@@ -264,6 +271,7 @@ class HotelBookingFacade {
 ```
 
 ### 4. Facade does NOT restrict access to subsystems
+
 ```java
 // Client CAN still access subsystems directly if needed
 RoomService room = new RoomService();
@@ -273,6 +281,7 @@ room.checkAvailability("Deluxe"); // perfectly valid
 ```
 
 ### 5. You can have multiple Facades for the same subsystem
+
 ```java
 // Different facades for different client needs
 BasicBookingFacade   facade1 = new BasicBookingFacade(room, payment);
@@ -285,50 +294,50 @@ PremiumBookingFacade facade2 = new PremiumBookingFacade(room, payment, loyalty, 
 
 ### Facade vs Adapter
 
-| | Facade | Adapter |
-|---|---|---|
-| **Intent** | Simplify complex system | Convert incompatible interface |
-| **Wraps** | Multiple subsystems | One legacy class |
-| **Legacy code?** | Not necessarily | Always |
-| **Analogy** | Zomato app | USB dongle |
+|                  | Facade                  | Adapter                        |
+| ---------------- | ----------------------- | ------------------------------ |
+| **Intent**       | Simplify complex system | Convert incompatible interface |
+| **Wraps**        | Multiple subsystems     | One legacy class               |
+| **Legacy code?** | Not necessarily         | Always                         |
+| **Analogy**      | Zomato app              | USB dongle                     |
 
 ### Facade vs Mediator
 
-| | Facade | Mediator |
-|---|---|---|
-| **Direction** | One way — client to subsystems | Two way — subsystems talk to each other |
-| **Subsystems aware?** | No | Yes, they know the mediator |
-| **Purpose** | Simplify interface | Control communication |
+|                       | Facade                         | Mediator                                |
+| --------------------- | ------------------------------ | --------------------------------------- |
+| **Direction**         | One way — client to subsystems | Two way — subsystems talk to each other |
+| **Subsystems aware?** | No                             | Yes, they know the mediator             |
+| **Purpose**           | Simplify interface             | Control communication                   |
 
 ### Facade vs Proxy
 
-| | Facade | Proxy |
-|---|---|---|
-| **Wraps** | Multiple classes | One class |
-| **Purpose** | Simplify | Control access, lazy load, cache |
-| **Interface** | New simplified one | Same as original |
+|               | Facade             | Proxy                            |
+| ------------- | ------------------ | -------------------------------- |
+| **Wraps**     | Multiple classes   | One class                        |
+| **Purpose**   | Simplify           | Control access, lazy load, cache |
+| **Interface** | New simplified one | Same as original                 |
 
 ---
 
 ## SOLID Principles Covered
 
-| Rule | SOLID Principle |
-|---|---|
+| Rule                                               | SOLID Principle                 |
+| -------------------------------------------------- | ------------------------------- |
 | Facade only coordinates, subsystems do actual work | Single Responsibility Principle |
-| Add new subsystem without changing client | Open/Closed Principle |
-| Client depends on Facade, not subsystems directly | Dependency Inversion Principle |
-| Subsystems work independently without Facade | Interface Segregation Principle |
+| Add new subsystem without changing client          | Open/Closed Principle           |
+| Client depends on Facade, not subsystems directly  | Dependency Inversion Principle  |
+| Subsystems work independently without Facade       | Interface Segregation Principle |
 
 ---
 
 ## Real World Usage
 
-| Framework / Library | How Facade is Used |
-|---|---|
-| `slf4j` | Simple logging interface hiding Log4j, Logback complexity |
-| `Spring JdbcTemplate` | Facade over raw JDBC boilerplate |
-| `Retrofit` | Facade over raw HTTP calls |
-| `javax.faces (JSF)` | Facade over Servlet and JSP complexity |
+| Framework / Library   | How Facade is Used                                        |
+| --------------------- | --------------------------------------------------------- |
+| `slf4j`               | Simple logging interface hiding Log4j, Logback complexity |
+| `Spring JdbcTemplate` | Facade over raw JDBC boilerplate                          |
+| `Retrofit`            | Facade over raw HTTP calls                                |
+| `javax.faces (JSF)`   | Facade over Servlet and JSP complexity                    |
 
 ---
 
@@ -349,4 +358,6 @@ The client should not know or care how many services coordinate behind the scene
 
 ---
 
-*Part of the Design Patterns in Java series.*
+Made with ❤️ by [@vaibhav25-mnnit](https://github.com/vaibhav25-mnnit)
+
+---

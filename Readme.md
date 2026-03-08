@@ -15,15 +15,15 @@ This document tracks important Design Patterns from a Low-Level Design (LLD) int
 ✔ [Observer Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/ObserverPattern/Readme.md)  
 ✔ [Singleton Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/Singleton/Readme.md)  
 ✔ [Strategy Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/StrategyPattern/Readme.md)  
-✔ [Command Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/CommandPattern/Readme.md)
+✔ [Command Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/CommandPattern/Readme.md)  
+✔ [Template Method Pattern](https://github.com/vaibhav25-mnnit/design-patterns/blob/master/TemplateMethodPattern/Readme.md)
 
 ---
 
 # 🚀 Important Patterns To Study Next (High Priority)
 
 ✔ State Pattern (with Vending Machine example)  
-✔ Abstract Factory Pattern  
-✔ Template Method Pattern
+✔ Abstract Factory Pattern
 
 ---
 
